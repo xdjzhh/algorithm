@@ -1,3 +1,7 @@
+
+
+#  回溯法
+
 def candy(score_list):
     final_list = [1 for i in range(len(score_list))]
     i = 1
