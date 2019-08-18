@@ -91,8 +91,8 @@ def subLists(lis=[],m=0,ans=[],allAns=[]):   #combination   不重复的组合
 #############################################################################
 
 
-if __name__ =='__main__':
-    stringlist = 'abc'
+
+    if __name__ == '__main__':  stringlist = 'abc'
     # list1,list2= method_1(string)
     # for i in list1:
     #     print(i)
