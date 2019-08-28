@@ -1,23 +1,26 @@
-def change(number_list):
-    i = 0
-    j = len(number_list)-1
 
-    while j > i:
-        if (number_list[i]%2 != 0)& (number_list[j]%2 == 0):
-            number_list[i],number_list[j] = number_list[j],number_list[i]
-            i+=1
-            j-=1
-        elif (number_list[i]%2 != 0)& (number_list[j]%2 != 0):
-            j-=1
-        elif (number_list[i]%2 == 0)& (number_list[j]%2 == 0):
-            i+=1
-        else:
-            i+=1
-            j-=1
-        print(i,j)
-    return number_list
 
-raw_string = input().split(' ')
-for i in range(len(raw_string)):
-    raw_string[i] = int(raw_string[i])
-print(change(raw_string))
+
+
+
+def solution(special_node,sequence,distance):
+    node_set = []
+    for index in range(len(sequence)):
+        if sequence[index] in special_node:
+            if index >= distance:
+                node_set = node_set + sequence[index-distance:index-1] + sequence[index+1:index+distance+1]
+            else:
+                node_set = node_set + sequence[0:index - 1] + sequence[index + 1:index + distance + 1]
+    number = len(set(node_set))
+    return number
+
+if __name__ == '__main__':
+    string1 = input().split(' ')
+    node_number = int(string1[0])
+    special =  int(string1[1])
+    distance = int(string1[2])
+
+    special_node = input().split(' ')
+    sequence = input().split(' ')
+
+    print(solution(special_node,sequence,distance))
