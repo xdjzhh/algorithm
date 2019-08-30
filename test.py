@@ -1,26 +1,31 @@
 
+import sys
 
 
+def solution(raw_list):
+    n = len(raw_list)
+    if n == 0:
+        return 0
+    if n == 1:
+        return raw_list[0]
+    minint = -sys.maxsize
+    dp = [[minint]*n for i in range(n)]
 
+    for i in range(n):
+        dp[i][i] = raw_list[i]
 
-def solution(special_node,sequence,distance):
-    node_set = []
-    for index in range(len(sequence)):
-        if sequence[index] in special_node:
-            if index >= distance:
-                node_set = node_set + sequence[index-distance:index-1] + sequence[index+1:index+distance+1]
-            else:
-                node_set = node_set + sequence[0:index - 1] + sequence[index + 1:index + distance + 1]
-    number = len(set(node_set))
-    return number
+    for l in range(1,n):
+        for i in range(n-l):
+            j = i + l
+            dp[i][j] = max(dp[i][j-1]+raw_list[j],raw_list[j])
+    return dp[0][n-1]
+
+    pass
+
 
 if __name__ == '__main__':
-    string1 = input().split(' ')
-    node_number = int(string1[0])
-    special =  int(string1[1])
-    distance = int(string1[2])
+    raw_list = input().split(' ')
+    for index in range(len(raw_list)):
+        raw_list[index] = int(raw_list[index])
 
-    special_node = input().split(' ')
-    sequence = input().split(' ')
-
-    print(solution(special_node,sequence,distance))
+    print(solution(raw_list))

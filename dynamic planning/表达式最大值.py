@@ -78,4 +78,4 @@ if __name__ == '__main__':
     signal1 = ['+','*','-','+']
     number2 = [1,2,3,6,1,2,3,5,7,2,8,9]
     signal2 = ['+','-','*','-','-','*','-','*','+','-','*']
-    print(largest(number1,signal1))
+    print(largest(number,signal))

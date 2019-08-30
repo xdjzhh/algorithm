@@ -34,5 +34,7 @@ def coins(lst):
 
     return f[0][n-1]>=0
 
+
+
 if __name__ == '__main__':
     print(coins([1,2,3,4,5]))
