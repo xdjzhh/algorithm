@@ -1,3 +1,5 @@
+
+
 def same_sum(number_list,sum):
     new_list = []
     for i in number_list:
@@ -56,6 +58,8 @@ if __name__ == '__main__':
     # ans = rec(1, m, [[]])
     # for a in ans:
     #     print(' '.join([str(x) for x in a]))
+
+
 
 
 

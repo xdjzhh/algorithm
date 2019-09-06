@@ -29,6 +29,7 @@ class solution:
                     self.path_list.append([new_path,energy])
                     print(self.path)
 
+                    '''若无最小小要求 无需后面两步，若有 则需退回前一层'''
                     self.path.pop(-1)
                     self.matrix[x][y] = 1
                     return

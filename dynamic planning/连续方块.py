@@ -1,27 +1,20 @@
-class Solution {
-public:
-    int rectCover(int number) {
-        if (number <= 0)
-            return 0;
-        if (number == 1)
-            return 1;
-        if (number == 2)
-            return 2;
-        vector<int> f(number + 1, 0);
-        //初始化
-        f[0] = 0;
-        f[1] = 1;
-        f[2] = 2;
-        for (int i = 3; i <= number; i++)
-        {
-            //状态递推
-            f[i] = f[i - 1] + f[i - 2];
-        }
-        //返回结果
-        return f[number];
-    }
-};
-
+class Solution:
+    def __init__(self):
+        self.dp = []
+    def rectCover(self, number):
+        # write code here
+        if number == 0:
+            return 0
+        if number == 1:
+            return 1
+        if number == 2:
+            return 2
+        self.dp = [0 for i in range(number+1)]
+        self.dp[1] = 1
+        self.dp[2] = 2
+        for i in range(3,number+1):
+            self.dp[i] = self.dp[i-1] + self.dp[i-2]
+        return self.dp[number]
 
 
 #连续数列的和

@@ -20,8 +20,10 @@ def coins(coin_list,total):
 
     for i in range(1,total + 1):
         for j in range(3):
-            if (i >= coin_list[j]) & (dp[i] > dp[i-coin_list[j]] +1):
-                dp[i] = dp[i - coin_list[j]] + 1
+            # if (i >= coin_list[j]) & (dp[i] > dp[i-coin_list[j]] +1):
+            #     dp[i] = dp[i - coin_list[j]] + 1
+            if (i >= coin_list[j]):
+                dp[i] = min(dp[i - coin_list[j]] + 1,dp[i])
     print(dp)
     return dp[total]
 
