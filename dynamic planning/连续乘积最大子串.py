@@ -1,6 +1,7 @@
 
 
 def maxproduct(raw_list):
+
     maxend = raw_list[0]
     minend = raw_list[0]
     maxresult = raw_list[0]

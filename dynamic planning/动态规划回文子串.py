@@ -39,7 +39,7 @@ def solution(s):
             # dp[i + 1][j - 1] == l-2意思是 dp[i + 1][j - 1]必须是回文，若不是回文max(dp[i + 1][j], dp[i][j - 1])计算
             if (s[i] == s[j]) & (dp[i + 1][j - 1] == l-2):
 
-                    dp[i][j] = max([dp[i][j], dp[i + 1][j - 1] + 2])
+                dp[i][j] = max([dp[i][j], dp[i + 1][j - 1] + 2])
 
             else:
                 dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])

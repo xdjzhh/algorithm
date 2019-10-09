@@ -34,7 +34,9 @@ def sum_reverse(string):
     for i in range(n):
         dp[i][i] = string[i]
 
-
+    # for l in range(1,n):
+    #     for i in range(n-l):
+    #         j = i + l
     for i in range(n-2,-1,-1):
         for j in range(i+1,n):
             if string[i] == string[j]:
@@ -50,3 +52,4 @@ if __name__ == '__main__':
     string = [70, 51, 34, 13, 19, 64 ,31, 21 ,89, 69 ,79 ,48 ,1 ,78, 47 ,94, 74 ,33, 59, 37 ,12 ,7 ,52 ,58 ,45 ,3 ,56 ,42 ,56 ,3 ,45 ,
               58 ,52 ,7 ,12 ,37 ,59 ,33 ,74, 94 ,47 ,78 ,1 ,48, 79, 69 ,89, 21, 31, 64 ,19, 13 ,34, 51, 70]
     print(sum_reverse(string))
+    #2530
