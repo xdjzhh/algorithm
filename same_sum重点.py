@@ -44,6 +44,7 @@ def sumofknum(sum,n):
     if sum == n:
         print(' '.join(str(i) for i in res_list) + ' ' +str(n))
         print('===================')
+
     res_list.append(n)
     sumofknum(sum-n,n-1)
     res_list.pop(-1)
