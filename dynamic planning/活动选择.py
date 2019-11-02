@@ -15,6 +15,7 @@ def activity_count(raw_list):
             if (raw_list[j][1] <= raw_list[i][0]) :
                 print(i,j)
                 dp[i]  = max(dp[i],dp[j] + 1)
+
     print(dp)
     return dp[n-1]
 
