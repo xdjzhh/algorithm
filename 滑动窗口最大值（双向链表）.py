@@ -16,14 +16,25 @@
  1  3  -1  -3 [5  3  6] 7       6
  1  3  -1  -3  5 [3  6  7]      7
 
+详解链接 https://leetcode-cn.com/problems/sliding-window-maximum/solution/shi-pin-jie-xi-shuang-duan-dui-lie-hua-dong-chuang/
 '''
 
 def solution(nums,k):
 
+    result = [max(nums[0:k])]
+    temp_index = [nums.index(max(nums[0:k]))]
 
-    pass
-
+    for i in range(k,len(nums)):
+        if temp_index and (i - temp_index[-1] == i-k):
+            temp_index.pop(0)
+            '''此循环是为了pop掉tempindex【0】和tempindex【-1】数值之间的数，形成递减列表'''
+        while temp_index and (nums[temp_index[-1]] < nums[i]):
+            temp_index.pop()
+        temp_index.append(i)
+        result.append(nums[temp_index[0]])
+    return result
 
 if __name__ == '__main__':
     nums = [1,3,-1,-3,5,3,6,7]
     k = 3
+    print(solution(nums,k))
