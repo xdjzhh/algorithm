@@ -43,4 +43,4 @@ def contain3(list1,list2):
 if __name__ == '__main__':
     list1 = 'asw'
     list2 = 'asdfhfjwadasd'
-    print(contain3(list1,list2))
+    print(contain2(list1,list2))
