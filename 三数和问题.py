@@ -16,7 +16,7 @@ def solution(input_list):
     for i in range(len(input_list)):
         start = i +1
         end = len(input_list)-1
-        if input_list[i] == input_list[i - 1]:
+        if (i>0) and (input_list[i] == input_list[i - 1]):
             continue
         while start < end:
             numsum = input_list[i] + input_list[start] + input_list[end]

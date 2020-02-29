@@ -37,6 +37,8 @@ def quicksort(list):#降序
     else:
         return list
 
+
+
 if __name__ == '__main__':
     list = [6,9,3,8,7,1]
     print(quicksort(list))

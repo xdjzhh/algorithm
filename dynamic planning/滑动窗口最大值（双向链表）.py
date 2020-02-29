@@ -20,18 +20,34 @@
 '''
 
 def solution(nums,k):
+    if nums == []:
+        return []
+    if k == 1:
+        return nums
 
-    result = [max(nums[0:k])]
-    temp_index = [nums.index(max(nums[0:k]))]
+    # result = [max(nums[:k])]
+    window = []
+    '''对最初的window中的k个元素做处理，使其变成从最大值开始到第k个元素的筛选过的降序排列的数组：
+        [1,4,1,3,2,1,5,7,2,4] k = 5 ==> innit_window[4,3,2] 最大值为 init_window[0]
+    '''
+    for init_index in range(0, k):
+        while window != [] and nums[window[-1]] < nums[init_index]:
+            window.pop(-1)
+        window.append(init_index)
 
-    for i in range(k,len(nums)):
-        if temp_index and (i - temp_index[-1] == i-k):
-            temp_index.pop(0)
-            '''此循环是为了pop掉tempindex【0】和tempindex【-1】数值之间的数，形成递减列表'''
-        while temp_index and (nums[temp_index[-1]] < nums[i]):
-            temp_index.pop()
-        temp_index.append(i)
-        result.append(nums[temp_index[0]])
+    result = [nums[window[0]]]
+
+    for index in range(k, len(nums)):
+        if window != [] and index - window[0] == k:
+            window.pop(0)
+
+        print(window)
+        while window != [] and nums[window[-1]] < nums[index]:
+            window.pop(-1)
+
+        window.append(index)
+        result.append(nums[window[0]])
+
     return result
 
 if __name__ == '__main__':
